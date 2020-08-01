@@ -2,7 +2,7 @@
 const apiKey = 'sk_test_51HB9t8Hs8cvrYh7rbaRdU8VmooWA9dDsQiJEcTRjCwFX0sFGAcSS9zGJXQTyzWgIjuzg3LIcGmGS8kZeBLs2aI2I006cWZUk9f'
 const stripe = require('stripe')(apiKey)
 
-const initiatePaymentIntent = async function(){
+module.exports.createPayment = async function(){
 	const paymentIntent = await stripe.paymentIntents.create({
 	amount: 500,
 	currency: 'usd',
@@ -12,8 +12,9 @@ const initiatePaymentIntent = async function(){
 })
 	if (paymentIntent){
 		console.log('initiate payment successful')
-		return
+		return paymentIntent
 	}
 	console.log('initiate payment failed')
+	return null
 }
-initiatePaymentIntent()
+// initiatePaymentIntent()
