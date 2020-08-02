@@ -1,31 +1,49 @@
 ## SETUP
-to set up the app make sure you have the apropriate repository and have them setup 
+To set up the app,  make sure you have the apropriate repository and you have them setup , preferrably within the same directory.
  - clone the repo (server) `git clone https://github.com/lexieernst/fauci-swag-server` 
  - clone the repo (client) `git clone https://github.com/lexieernst/fauci-swag-client`
 
  ## Repos 
- [Server Repo](https://github.com/lexieernst/fauci-swag-server)
- [Client Repo](https://github.com/lexieernst/fauci-swag-client)
+ - [Server Repo](https://github.com/lexieernst/fauci-swag-server)
+ - [Client Repo](https://github.com/lexieernst/fauci-swag-client)
+
 #### Setup the server 
 
  - navigate to the server repository directory `cd fauci-swag-server`
- - install dependencies `npm install` __(Make sure you have node installed on your machine )__
+ - install dependencies `npm install` __(Make sure you have node installed on your machine)__
  - run the server `npm run dev`
- - test the server by navigating to these url on your browser `localhost:4000`, should see a welome message , this confirms that the server is running 
+ - test the server by navigating to the url on your browser `localhost:4000`. You should see a welome message. This confirms that the server is running 
 
  #### Setup the client 
  - navigate to the client repository directory `cd fauci-swag-client`
-  - install dependencies `npm install` __(Make sure you have node installed on your machine )__
+  - install dependencies `npm install` __(Make sure you have node installed on your machine)__
   - run the server `npm run start`
-  - navigate to  `localhost:3000` and should see a default stripe form 
+  - navigate to  `localhost:3000`. You should see a default stripe form.
+
+### Setup the webhook locally 
+- First install the stripe CLI 
+   - For MAC `brew install stripe/stripe-cli/stripe`
+   - for winddows 
+       1. Download the latest windows tar.gz file from https://github.com/stripe/stripe-cli/releases/latest
+       2. Unzip the stripe_X.X.X_windows_x86_64.zip file
+       3. Run the unzipped .exe file
+   - For Linux
+       1. Download the latest linux tar.gz file from https://github.com/stripe/stripe-cli/releases/latest
+       2. Unzip the file: tar -xvf stripe_X.X.X_linux_x86_64.tar.gz
+       3. Run the executable: ./stripe
+    [consult the docs for more information](https://stripe.com/docs/payments/handling-payment-events#build-your-own-webhook)
+
+- Navigate to the terminal, and enter: `stripe login --api-key {{TEST_API_KEY}}` __replace content of the curly braces with your APIKEY__
+- Run `stripe listen --forward-to http://localhost:4000/webhook` this allows the CLI to portforward requests to the webhook running on the node server on port 4000.
 
 
 ## Structure and Architecture 
-The started with the script , npm run dev, which in turns uses nodemon to watch the index.js file on the server for changes 
-- The index.js file composes the app object , the app object is an instance of node's http server fulfilled by express js 
+To start the server run the script `npm run dev`, This uses nodemon to watch the `index.js` file on the server for changes . For production we will run the server with node but for development we need nodemon for live reload functionalities.
+
+- The index.js file composes the app object. The app object is an instance of node's http server fulfilled by express js 
    - The app also composes the middlewares `cors` and `body-parser`
   - cors allows us to whitelist domains that can communicate with the server 
-  - in the case of this we dpo not need to implement an additional layer of security on our server so we are opening up the server to acce[pt connections from all domains 
+  - in the case of this we do not need to implement an additional layer of security on our server so we are opening up the server to accept connections from all domains 
   - we then created routes for the app object 
    1. The Home route `/` this is the default route when a user hits the domain with no path 
    2. The secret route `/secret` returns a secret for the initated payement in order to connect to the client
@@ -40,10 +58,4 @@ The started with the script , npm run dev, which in turns uses nodemon to watch 
  - Within the app.js file we implemented the stripe component 
  - Subscribed to the payment intent object we declared in the server on `checkoutForm.js` file 
  - And then the payment logic is implemented on the file 
- - once the payment is successful we display an alert on the client 
-
-
-## Friction Log 
- - it was quite easy to set up the server 
- - the client is straight forward 
- - but the webhook logic is quite complicated 
+ - once the payment is successful we display an alert on the client
