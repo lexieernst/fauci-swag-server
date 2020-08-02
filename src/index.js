@@ -4,14 +4,47 @@ const bodyParser = require('body-parser')
 const port = 4000
 const host = 'localhost'
 const createPayment = require('./stripe').createPayment
+const logger = require('./logger')
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
 	extended: true
 }))
 
+app.post('/webhook', async ( req, res) => {
+	let event;
+  const { body } = req
+  try {
+    event = JSON.parse(body);
+  } catch (err) {
+    response.status(400).send(`Webhook Error: ${err.message}`);
+  }
+	
+	const { type } = event 
+
+  // Handle the event
+  switch (type) {
+    case 'payment_intent.succeeded':
+			const paymentIntent = event.data.object;
+			logger.success('PaymentIntent was successful!')
+      break;
+    case 'payment_method.attached':
+			const paymentMethod = event.data.object;
+			logger.success('PaymentMethod was attached to a Customer!')
+      break;
+    // ... handle other event types
+    default:
+      // Unexpected event type
+      return response.status(400).end();
+  }
+
+  // Return a 200 response to acknowledge receipt of the event
+  response.json({received: true});
+
+})
 app.get('/secret', async (req, res)=>{
 	const intent = await createPayment()
+	logger.success('secret was sent ')
 	res.json({client_secret:intent.client_secret})
 })
 

@@ -13,7 +13,9 @@ module.exports.createPayment = async function(){
 	if (paymentIntent){
 		console.log('initiate payment successful')
 		return paymentIntent
+	// create logs here
 	}
+	// create logs here
 	console.log('initiate payment failed')
 	return null
 }
