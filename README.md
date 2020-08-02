@@ -1,4 +1,4 @@
-## SETUP
+## Setup
 To set up the app,  make sure you have the apropriate repository and you have them setup , preferrably within the same directory.
  - clone the repo (server) `git clone https://github.com/lexieernst/fauci-swag-server` 
  - clone the repo (client) `git clone https://github.com/lexieernst/fauci-swag-client`
@@ -52,9 +52,9 @@ To start the server run the script `npm run dev`, This uses nodemon to watch the
    5. Webhooks writes to a logger at the fle `loggger.txt`
 
  - The server listens on port 4000 
- 
- - The client is built with react 
- - Bootstrapped fron the tool create react app
+ – The client listents on port 3000
+ - The client is built with React 
+ - Bootstrapped from the tool `create-react-app`
  - Within the app.js file we implemented the stripe component 
  - Subscribed to the payment intent object we declared in the server on `checkoutForm.js` file 
  - And then the payment logic is implemented on the file 
