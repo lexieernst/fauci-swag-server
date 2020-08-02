@@ -3,7 +3,7 @@ const fs = require('fs')
 const logFileName = 'logger.txt'
 
 module.exports.success = function(textToWrite) {
-  const date = new Date().toDateString()
+  const date = new Date()
   try { 
     fs.appendFileSync(logFileName, `\n SUCCESS!!! ${textToWrite}\t${date}`);
     return true
