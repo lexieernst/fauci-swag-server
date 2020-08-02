@@ -11,13 +11,13 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 
-app.post('/webhook', async ( req, res) => {
+app.post('/webhook', bodyParser.raw({type: 'application/json'}), ( req, res ) => {
 	let event;
   const { body } = req
   try {
     event = JSON.parse(body);
   } catch (err) {
-    response.status(400).send(`Webhook Error: ${err.message}`);
+    res.status(400).send(`Webhook Error: ${err.message}`);
   }
 	
 	const { type } = event 
@@ -28,18 +28,14 @@ app.post('/webhook', async ( req, res) => {
 			const paymentIntent = event.data.object;
 			logger.success('PaymentIntent was successful!')
       break;
-    case 'payment_method.attached':
-			const paymentMethod = event.data.object;
-			logger.success('PaymentMethod was attached to a Customer!')
-      break;
-    // ... handle other event types
+    // ... handle other event types if needed
     default:
       // Unexpected event type
-      return response.status(400).end();
+      return res.status(400).end();
   }
 
   // Return a 200 response to acknowledge receipt of the event
-  response.json({received: true});
+  res.json({received: true});
 
 })
 app.get('/secret', async (req, res)=>{
