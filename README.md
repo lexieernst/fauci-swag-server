@@ -20,7 +20,7 @@ To set up the app,  make sure you have the apropriate repository and you have th
   - run the server `npm run start`
   - navigate to  `localhost:3000`. You should see a default stripe form.
 
-### Setup the webhook locally 
+#### Setup the webhook locally 
 - First install the stripe CLI 
    - For MAC `brew install stripe/stripe-cli/stripe`
    - for winddows 
@@ -35,6 +35,11 @@ To set up the app,  make sure you have the apropriate repository and you have th
 
 - Navigate to the terminal, and enter: `stripe login --api-key {{TEST_API_KEY}}` __replace content of the curly braces with your APIKEY__
 - Run `stripe listen --forward-to http://localhost:4000/webhook` this allows the CLI to portforward requests to the webhook running on the node server on port 4000.
+
+#### Test the product
+ - Once you have the server, client, and Stripe CLI running, you are ready to test the integration.
+ – Navigate to http://localhost:3000/, enter in test credit card data (shown below), and click "Buy T-Shirt". If the Payment is successful, you should see an alert that reads, "Payment was successful".
+ – If the payment intent was indeed successful, your server directory `dr-fauci-swag`, a logger.txt file will appear that reads  `SUCCESS! PaymentIntent was successful!` with the corresponding date and time of the event.
 
 
 ## Structure and Architecture 
