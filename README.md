@@ -39,9 +39,9 @@ To set up the app,  make sure you have the apropriate repository and you have th
 #### Test the product
  - Once you have the server, client, and Stripe CLI running, you are ready to test the integration.
 
- - Navigate to http://localhost:3000/, enter in test credit card data (shown below), and click "Buy T-Shirt". If the Payment is successful, you should see an alert that reads, "Payment was successful".
- 
- - If the payment intent was indeed successful, your server directory `dr-fauci-swag`, a logger.txt file will appear that reads  `SUCCESS! PaymentIntent was successful!` with the corresponding date and time of the event.
+ - Navigate to http://localhost:3000/, enter in test credit card data (shown below), and click `Buy T-Shirt`. If the Payment is successful, you should see an alert that reads, `Payment was successful`.
+
+ - If the payment intent was indeed successful, in your server directory `dr-fauci-swag`, a `logger.txt` file will appear that reads  `SUCCESS! PaymentIntent was successful!` with the corresponding date and time of the event.
 
 
 ## Structure and Architecture 
@@ -62,7 +62,7 @@ To start the server run the script `npm run dev`, This uses nodemon to watch the
  – The client listents on port 3000
  - The client is built with React 
  - Bootstrapped from the tool `create-react-app`
- - Within the app.js file we implemented the stripe component 
+ - Within the `app.js` file we implemented the stripe component 
  - Subscribed to the payment intent object we declared in the server on `checkoutForm.js` file 
  - And then the payment logic is implemented on the file 
- - once the payment is successful we display an alert on the client
+ - Once the payment is successful we display an alert on the client
