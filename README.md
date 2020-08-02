@@ -1,5 +1,5 @@
 ## Setup
-To set up the app,  make sure you have the apropriate repository and you have them setup , preferrably within the same directory.
+To set up the app,  make sure you have the apropriate repository and you have them set up.
  - clone the repo (server) `git clone https://github.com/lexieernst/fauci-swag-server` 
  - clone the repo (client) `git clone https://github.com/lexieernst/fauci-swag-client`
 
@@ -7,20 +7,20 @@ To set up the app,  make sure you have the apropriate repository and you have th
  - [Server Repo](https://github.com/lexieernst/fauci-swag-server)
  - [Client Repo](https://github.com/lexieernst/fauci-swag-client)
 
-#### Setup the server 
+#### Set up the server 
 
  - navigate to the server repository directory `cd fauci-swag-server`
  - install dependencies `npm install` __(Make sure you have node installed on your machine)__
  - run the server `npm run dev`
- - test the server by navigating to the url on your browser `localhost:4000`. You should see a welome message. This confirms that the server is running 
+ - test the server by navigating to the url on your browser `localhost:4000`. You should see a welome message. This confirms that the server is running. 
 
- #### Setup the client 
+ #### Set up the client 
  - navigate to the client repository directory `cd fauci-swag-client`
   - install dependencies `npm install` __(Make sure you have node installed on your machine)__
   - run the server `npm run start`
   - navigate to  `localhost:3000`. You should see a default stripe form.
 
-#### Setup the webhook locally 
+#### Set up the webhook locally 
 - First install the stripe CLI 
    - For MAC `brew install stripe/stripe-cli/stripe`
    - for winddows 
@@ -38,8 +38,10 @@ To set up the app,  make sure you have the apropriate repository and you have th
 
 #### Test the product
  - Once you have the server, client, and Stripe CLI running, you are ready to test the integration.
- – Navigate to http://localhost:3000/, enter in test credit card data (shown below), and click "Buy T-Shirt". If the Payment is successful, you should see an alert that reads, "Payment was successful".
- – If the payment intent was indeed successful, your server directory `dr-fauci-swag`, a logger.txt file will appear that reads  `SUCCESS! PaymentIntent was successful!` with the corresponding date and time of the event.
+
+ - Navigate to http://localhost:3000/, enter in test credit card data (shown below), and click "Buy T-Shirt". If the Payment is successful, you should see an alert that reads, "Payment was successful".
+ 
+ - If the payment intent was indeed successful, your server directory `dr-fauci-swag`, a logger.txt file will appear that reads  `SUCCESS! PaymentIntent was successful!` with the corresponding date and time of the event.
 
 
 ## Structure and Architecture 
