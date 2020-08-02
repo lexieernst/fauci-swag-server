@@ -21,6 +21,7 @@ module.exports.error = function(textToWrite) {
    console.log(' Failed to write to log ')
   }
 }
+
 module.exports.warning = function(textToWrite) {
   const date = new Date().toDateString()
   try { 
