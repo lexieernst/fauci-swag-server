@@ -1,4 +1,4 @@
-# This web application allows users to buy Dr. Fauci inspired swag using the Stripe PaymentIntents integration
+# This web application allows users to buy Dr. Fauci-inspired swag using the Stripe PaymentIntents integration
 
 ## Setup
 To set up the app,  please make sure you have the two appropriate repositories set up.
