@@ -1,5 +1,7 @@
+# This web application allows users to buy Dr. Fauci inspired swag using the Stripe PaymentIntents integration
+
 ## Setup
-To set up the app,  make sure you have the two appropriate repositories set up.
+To set up the app,  please make sure you have the two appropriate repositories set up.
  - Clone the repo (server) `git clone https://github.com/lexieernst/fauci-swag-server` 
  - Clone the repo (client) `git clone https://github.com/lexieernst/fauci-swag-client`
 
