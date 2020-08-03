@@ -46,7 +46,7 @@ app.get('/secret', async (req, res)=>{
 })
 
 app.get('/', (req, res)=>{
-	res.send('welcome to dr fauci swag site')
+	res.send('Welcome, happy shopping for Dr. Fauci Swag!.')
 })
 
 app.listen(port, host, function(){
