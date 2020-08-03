@@ -12,7 +12,7 @@ To set up the app,  make sure you have the two appropriate repositories set up.
  - Navigate to the server repository directory `cd fauci-swag-server`
  - Install dependencies `npm install` __(Make sure you have node installed on your machine)__
  - Run the server `npm run dev`
- - test the server by navigating to the url on your browser `localhost:4000`. You should see a welome message. This confirms that the server is running. 
+ - test the server by navigating to the url on your browser `localhost:4000`. You should see a welcome message. This confirms that the server is running. 
 
  #### Set up the client 
  - Navigate to the client repository directory `cd fauci-swag-client`
@@ -23,7 +23,7 @@ To set up the app,  make sure you have the two appropriate repositories set up.
 #### Set up the webhook locally 
 - First install the stripe CLI 
    - For Mac `brew install stripe/stripe-cli/stripe`
-   - for Winddows 
+   - for Windows 
        1. Download the latest windows tar.gz file from https://github.com/stripe/stripe-cli/releases/latest
        2. Unzip the stripe_X.X.X_windows_x86_64.zip file
        3. Run the unzipped .exe file
@@ -66,4 +66,4 @@ To start the server run the script `npm run dev`, This uses nodemon to watch the
  - Within the `app.js` file we implemented the Stripe component 
  - Subscribed to the payment intent object we declared in the server on `checkoutForm.js` file 
  - And then the payment logic is implemented on the file 
- - Once the payment is successful we display an alert on the client
+ - Once the payment is successful we display an alert on the client. If the payment is not successful, an error message will appear.
