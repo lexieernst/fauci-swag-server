@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 
+//log payment success with a webhook
 app.post('/webhook', bodyParser.raw({type: 'application/json'}), ( req, res ) => {
 	let event;
   const { body } = req

@@ -23,7 +23,7 @@ To set up the app,  make sure you have the apropriate repository and you have th
 #### Set up the webhook locally 
 - First install the stripe CLI 
    - For MAC `brew install stripe/stripe-cli/stripe`
-   - for winddows 
+   - for Windows 
        1. Download the latest windows tar.gz file from https://github.com/stripe/stripe-cli/releases/latest
        2. Unzip the stripe_X.X.X_windows_x86_64.zip file
        3. Run the unzipped .exe file

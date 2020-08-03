@@ -1,4 +1,4 @@
-// initiate payment intent where we need it
+// initiate payment intent on the server
 const apiKey = 'sk_test_51HB9t8Hs8cvrYh7rbaRdU8VmooWA9dDsQiJEcTRjCwFX0sFGAcSS9zGJXQTyzWgIjuzg3LIcGmGS8kZeBLs2aI2I006cWZUk9f'
 const stripe = require('stripe')(apiKey)
 
